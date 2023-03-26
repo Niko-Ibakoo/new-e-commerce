@@ -71,6 +71,10 @@ li{
   background-color: #0064d3;
   border-radius: 30px;
   color: #fff;
+  transition: .5s;
+}
+li:hover{
+  background-color:#3d98ff ;
 }
 h1 span {
   font-family: "Courier New", Courier, monospace;

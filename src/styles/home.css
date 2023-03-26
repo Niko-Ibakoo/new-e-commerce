@@ -1,3 +1,5 @@
+
+
 .main-container {
   margin: 0 auto;
   width: 70%;
@@ -21,7 +23,9 @@
   height: 192px;
   background-image: url('https://i.ebayimg.com/images/g/DSIAAOSwWu1f28PK/s-l1600.webp');
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+
 }
 .img-header .txt{
   color: #fff;
@@ -45,4 +49,5 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: .5s;
 }
