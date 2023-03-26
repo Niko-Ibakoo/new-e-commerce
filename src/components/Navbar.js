@@ -21,16 +21,13 @@ const Navbar = () => {
             <BiSearch className="fa" /> search
           </button>
         </form>
-        <div className="dropdown">
-          <span>Categories</span>
-          <div className="dropdown-content">
-            <p>men</p>
-            <p>women</p>
-            <p>electronics</p>
-            <p>jewelry</p>
-          </div>
-        </div>
       </nav>
+      <ul>
+          <li> <a href=""> man</a></li>
+          <li> <a href=""> woman</a></li>
+          <li> <a href=""> electronics</a></li>
+          <li> <a href=""> jewlery</a></li>
+        </ul>
     </header>
   );
 };
