@@ -3,18 +3,10 @@ import axios from "axios";
 import "../styles/home.css";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
-const Home = () => {
-  const [data, setData] = useState([]);
-  const getData = () => {
-    axios.get("https://fakestoreapi.com/products").then((res) => {
-      setData(res.data);
-    });
-  };
-  console.log(data);
-  useEffect(() => {
-    getData();
-  }, []);
 
+const Home = ({props}) => {
+
+  const data = props
   return (
     <main>
       <div className="main-container">
@@ -23,7 +15,6 @@ const Home = () => {
             <h2>Hello there friend</h2>
             <p>Welcome to my e-commerce app</p>
             <h1>SNEAKERS 50% OFF !</h1>
-            
           </div>
         </div>
         <div className="grid">

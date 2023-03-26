@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Pages from "./Routing/Pages";
 import Navbar from "./components/Navbar";
-// # 1 WEEK - TODO:
-//1) get data from https://fakestoreapi.com/ and display items in Home.js component - Niko
-//2) create Home.css and set up routing system - Niko
-//3) set up pages paths - Niko
-//4) create/design Home & Product layout on Figma or Miro whiteboard - Chase
-//5) create Product.js component & Product.css  - Chase
-//6) in Home.js when clicking on image send the image id as parameter into to Product.js component - Chase
-//7) in Product.js component make API call based on that id (SEE API DOCS.txt file) - Chase
-//8) Celebrate the end of sprint 1 first week !!! :D
-
+import axios from "axios";
 function App() {
+  const [data, setData] = useState([]);
+
+  //dynamic endpoint with allProducts as default
+  const [endpoint,setEndpoint] = useState("https://fakestoreapi.com/products")
+  //dynamic data , 
+  const getData = (endpoint) => {
+    axios.get(endpoint).then((res) => setData(res.data));
+   
+  };
+  // /function fired on li click
+  const changeEndpoint = (item)=>{
+    setEndpoint(item)
+  }
+  useEffect(() => {
+    getData(endpoint)
+  }, [endpoint]);
+
   return (
     <BrowserRouter>
-      <Navbar />
-      <Pages />
+      <Navbar handleEvent={changeEndpoint} />
+      <Pages  data={data} />
     </BrowserRouter>
   );
 }
