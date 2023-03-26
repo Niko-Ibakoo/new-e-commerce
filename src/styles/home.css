@@ -1,0 +1,44 @@
+.main-container {
+  margin: 5% auto;
+  width: 70%;
+  height: auto;
+  padding: 0px 0px;
+  background-color: rgb(242, 242, 242);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 1%;
+}
+.img-filler{
+
+  width: 100%;
+}
+.img-header {
+  width: 100%;
+  height: 192px;
+  background-image: url('https://i.ebayimg.com/images/g/DSIAAOSwWu1f28PK/s-l1600.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.img-header .txt{
+  color: #fff;
+  padding: 3%;
+}
+.card {
+  height: auto;
+  border-radius: 10px;
+}
+p {
+  font-weight: 400;
+}
+.img-container {
+  height: 200px;
+  background-color: #fff;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
