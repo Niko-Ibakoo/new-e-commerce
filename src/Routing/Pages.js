@@ -3,11 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../components/Home";
 import Details from "../components/Details";
 
-const Pages = ({data}) => {
+const Pages = ({data,cartItems,cartEvent}) => {
   return (
     <Routes>
       <Route path="/" element={<Home props ={data} />} />
-      <Route path="/Details/:id/:type" element={<Details/>} />
+      <Route path="/Details/:id/:type" element={<Details props={{cartEvent,cartItems}} />} />
     </Routes>
   );
 };

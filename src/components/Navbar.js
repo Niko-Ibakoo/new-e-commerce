@@ -2,50 +2,68 @@ import React, { useState } from "react";
 import "../styles/navbar.css";
 import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
-
-const Navbar = ({ handleEvent }) => {
+import { BsCart2 } from "react-icons/bs";
+import { BsBell } from "react-icons/bs";
+const Navbar = ({ handleEvent, cartItem }) => {
   const men = "men's clothing";
   const woman = "women's clothing";
   const electronics = "electronics";
   const jewelery = "jewelery";
   const allProducts = "https://fakestoreapi.com/products";
-
+  let cartLength = cartItem.length;
   return (
     <header>
       <nav>
-        <Link style={{textDecoration:'none'}} to={'/'}>
+        <Link style={{ textDecoration: "none" }} to={"/"}>
           <h1 className="logo">
-            <span style={{ color: "#e53238" }}>E</span>
-            <span style={{ color: "#0064d3" }}>S</span>
-            <span style={{ color: "#f5af02" }}>H</span>
-            <span style={{ color: "#86b817" }}>O</span>
-            <span style={{ color: "orange" }}>P</span>
+            <span style={{ color: "#e53238" }}>e</span>
+            <span style={{ color: "#0064d3" }}>s</span>
+            <span style={{ color: "#f5af02" }}>h</span>
+            <span style={{ color: "#86b817" }}>o</span>
+            <span style={{ color: "orange" }}>p</span>
           </h1>
         </Link>
         <form action="submit">
-          <input
-            placeholder="jewlery, electronics, men clothes.. "
-            type="text"
-          />
+          <input placeholder="jewlery, electronics, shoes.. " type="text" />
           <button>
             <BiSearch className="fa" /> search
           </button>
         </form>
+        {/* cart */}
+        <div className="cart-container">
+          <BsCart2 className="cart" />
+          {cartLength>0?<div className="cart-items">{cartLength}</div>: null}
+        </div>
+        <div className="notification">
+          <BsBell />
+        </div>
+        {/* login / sign up */}
+        <div style={{ marginLeft: "auto" }} className="login">
+          <span>Sign up</span>
+          <span> / </span>
+          <span>Log in</span>
+        </div>
       </nav>
+
+      {/* category list section */}
       <ul>
         <li
           onClick={() =>
             handleEvent(`https://fakestoreapi.com/products/category/${men}`)
           }
         >
-          <Link style={{color:'#fff', textDecoration:'none'}} to={'/'}>man</Link>
+          <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
+            men
+          </Link>
         </li>
         <li
           onClick={() =>
             handleEvent(`https://fakestoreapi.com/products/category/${woman}`)
           }
         >
-         <Link style={{color:'#fff', textDecoration:'none'}} to={'/'}>women</Link>
+          <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
+            women
+          </Link>
         </li>
         <li
           onClick={() =>
@@ -54,7 +72,9 @@ const Navbar = ({ handleEvent }) => {
             )
           }
         >
-        <Link style={{color:'#fff', textDecoration:'none'}} to={'/'}>electronics</Link>
+          <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
+            electronics
+          </Link>
         </li>
         <li
           onClick={() =>
@@ -63,10 +83,14 @@ const Navbar = ({ handleEvent }) => {
             )
           }
         >
-          <Link style={{color:'#fff', textDecoration:'none'}} to={'/'}>jewelery</Link>
+          <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
+            jewelery
+          </Link>
         </li>
         <li onClick={() => handleEvent("https://fakestoreapi.com/products")}>
-        <Link style={{color:'#fff', textDecoration:'none'}} to={'/'}>all</Link>
+          <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
+            all
+          </Link>
         </li>
       </ul>
     </header>

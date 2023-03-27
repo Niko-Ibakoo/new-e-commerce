@@ -5,10 +5,15 @@ import { useState } from "react";
 import Loading from "./Loading";
 import { FaStar } from "react-icons/fa";
 import "../styles/details.css";
-const Details = () => {
+
+const Details = ({props}) => {
   const params = useParams();
   const [product, setProduct] = useState([]);
   const [category, setCategory] = useState([]); //for the you might also like
+
+
+  //add to cart
+
 
   useEffect(() => {
     Axios.get(`https://fakestoreapi.com/products/${params.id}`).then(
@@ -21,7 +26,7 @@ const Details = () => {
         err ? console.log("the error is: " + err) : setCategory(res.data);
       }
     );
-  }, []);
+  }, [params]);
 
   return (
     <>
@@ -36,14 +41,14 @@ const Details = () => {
               <FaStar className="stars" />
               <FaStar className="stars" />
               <FaStar className="stars" />
-              <FaStar className="stars" />
-              {/* {`(${product.rating.count})`} */}
+              <FaStar style={{marginRight:'3px'}} className="stars" />
+              {`(${product.rating.count})`}
             </span>
             <p>{product.description}</p>
-            <h3> ${product.price}</h3>
+            <h3 style={{color:'red'}}> ${product.price}</h3>
             <div className="product-btn">
               <button>continue shopping</button>
-              <button>add to cart</button>
+              <button onClick={()=>props.cartEvent(product)}>add to cart</button>
             </div>
           </div>
         </div>
@@ -59,7 +64,7 @@ const Details = () => {
                   <img src={item.image} alt="" />
                 </div>
                 <p>{item.title}</p>
-                <p style={{fontWeight:'600'}}>$ {item.price - 10}</p>
+                <p style={{fontWeight:'600'}}>$ {item.price - 3}</p>
                 <p style={{textDecoration:'line-through'}}>$ {item.price} </p> 
               </div>
             ))}

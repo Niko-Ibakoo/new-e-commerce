@@ -9,13 +9,13 @@ const Home = ({props}) => {
     <main>
       <div className="main-container">
         <div className="img-header">
-          <div className="txt">
+          <div id="txt" className="txt">
             <h2>Hello there friend</h2>
             <p>Welcome to my e-commerce app</p>
-            <h1>SNEAKERS 50% OFF !</h1>
+            <h1 id="tagline" className="tagline">SNEAKERS 50% OFF !</h1>
           </div>
         </div>
-        <div className="grid">
+        <div id="grid" className="grid">
           {data[0] ? (
             data.map((item, index) => (
               <div key={index} className="card">
