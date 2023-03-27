@@ -7,13 +7,13 @@ function App() {
   const [data, setData] = useState([]);
 
   //dynamic endpoint with allProducts as default
-  const [endpoint,setEndpoint] = useState("https://fakestoreapi.com/products")
+  const [endpoint,setEndpoint] = useState("https://fakestoreapi.com/products") 
   //dynamic data , 
   const getData = (endpoint) => {
     axios.get(endpoint).then((res) => setData(res.data));
    
   };
-  // /function fired on li click
+  // /fucntion fired on li click
   const changeEndpoint = (item)=>{
     setEndpoint(item)
   }

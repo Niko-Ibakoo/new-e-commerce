@@ -1,9 +1,7 @@
 import React from "react";
-import axios from "axios";
 import "../styles/home.css";
-import { useEffect, useState } from "react";
 import Loading from "./Loading";
-
+import { Link } from "react-router-dom";
 const Home = ({props}) => {
 
   const data = props
@@ -22,7 +20,7 @@ const Home = ({props}) => {
             data.map((item, index) => (
               <div key={index} className="card">
                 <div className="img-container">
-                  <img src={item.image} alt="" />
+                  <Link to={'/Details/'+item.id+'/'+item.category}><img src={item.image} alt="" /></Link>
                 </div>
                 <div className="txt-container">
                   <p>{item.title}</p>
