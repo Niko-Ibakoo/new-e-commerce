@@ -23,7 +23,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
             <span style={{ color: "orange" }}>p</span>
           </h1>
         </Link>
-        <form action="submit">
+        <form >
           <input placeholder="jewlery, electronics, shoes.. " type="text" />
           <button>
             <BiSearch className="fa" /> search

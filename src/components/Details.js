@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Loading from "./Loading";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "../styles/details.css";
 
 const Details = ({props}) => {
@@ -61,7 +62,7 @@ const Details = ({props}) => {
             {category.map((item, index) => (
               <div key={index} className="card">
                 <div className="img-container">
-                  <img src={item.image} alt="" />
+                  <Link to={'/Details/'+item.id+'/'+item.category}><img src={item.image} alt="" /></Link>
                 </div>
                 <p>{item.title}</p>
                 <p style={{fontWeight:'600'}}>$ {item.price - 3}</p>
