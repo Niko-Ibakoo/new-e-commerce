@@ -12,7 +12,7 @@ header {
   margin: 0 auto;
   max-width: 1200px;
 }
-.top-section{
+.top-section {
   margin: 0 auto;
   width: 95%;
   display: flex;
@@ -22,14 +22,13 @@ header {
   color: rgb(66, 66, 66);
   padding: 5px 0px;
 }
-.icons-container{
+.icons-container {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 23px;
-
 }
-.cart-container{
+.cart-container {
   position: relative;
 }
 .cart-items {
@@ -76,9 +75,9 @@ input {
   text-indent: 10px;
   color: #000;
   border-radius: 10px 0px 0px 10px;
-  border: .2px solid grey;
+  border: 0.2px solid grey;
 }
-input:focus{
+input:focus {
   outline: none;
 }
 button {
@@ -106,8 +105,6 @@ button:hover {
   box-shadow: 8px 12px 25px 0 rgba(0, 0, 0, 0.15);
   border-radius: 0 0 10px 10px;
   z-index: 40;
-
-
 }
 .dropdown-row {
   min-height: 30px;
@@ -126,8 +123,6 @@ button:hover {
 .dropdown-row:hover {
   background-color: rgb(227, 227, 227);
 }
-
-
 
 /*categories section*/
 ul {
@@ -240,19 +235,18 @@ h1 span {
     height: auto;
     width: 100%;
     margin-top: 34px;
-    border: 0.5px solid grey;
+    border: none;
     border-radius: 0 0 10px 10px;
   }
   .dropdown-row {
     height: 30px;
     text-align: start;
     margin: 2px 0px;
-    text-indent: 5px;
+    text-indent: 10px;
     cursor: pointer;
     border: none;
     font-weight: 500;
     border-radius: 5px;
     font-size: small;
-
   }
 }
