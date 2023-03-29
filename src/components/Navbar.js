@@ -1,20 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/navbar.css";
 import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { BsCart2 } from "react-icons/bs";
 import { BsBell } from "react-icons/bs";
+import axios, { all } from "axios";
+
 const Navbar = ({ handleEvent, cartItem }) => {
   const men = "men's clothing";
   const woman = "women's clothing";
   const electronics = "electronics";
   const jewelery = "jewelery";
-  const allProducts = "https://fakestoreapi.com/products";
   let cartLength = cartItem.length;
+  const [data, setData] = useState([]);
+  const [toggle, setToggle] = useState(true);
+  const toggVisibility = toggle ? "visible" : "hidden";
+
+  useEffect(() => {
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then((res) => setData(res.data));
+  }, []);
+  //form
+  const [inputValue, setInputValue] = useState("");
+  //search data
+  const onSearch = (searchedProduct) => {
+    setInputValue(searchedProduct);
+    setToggle(false);
+  };
+
   return (
     <header>
       <nav>
-        <Link style={{ textDecoration: "none" }} to={"/"}>
+        <Link
+          onClick={() => setInputValue("")}
+          style={{ textDecoration: "none" }}
+          to={"/"}
+        >
           <h1 className="logo">
             <span style={{ color: "#e53238" }}>e</span>
             <span style={{ color: "#0064d3" }}>s</span>
@@ -23,16 +45,46 @@ const Navbar = ({ handleEvent, cartItem }) => {
             <span style={{ color: "orange" }}>p</span>
           </h1>
         </Link>
-        <form >
-          <input placeholder="jewlery, electronics, shoes.. " type="text" />
+        <div className="form">
+          <input
+            onClick={() => setToggle(true)}
+            onChange={(e) => setInputValue(e.target.value)}
+            type="text"
+            value={inputValue}
+          />
           <button>
             <BiSearch className="fa" /> search
           </button>
-        </form>
+          <div style={{ visibility: toggVisibility }} className="dropdown">
+            {data
+              .filter((item) => {
+                const searchTerm = inputValue.toLocaleLowerCase();
+                const product = item.title.toLocaleLowerCase();
+                return searchTerm && product.includes(searchTerm); // if searchTermis true return something else return nothing
+              })
+              .map((item, index) => (
+                <div
+                  onClick={() => onSearch(item.title)}
+                  key={index}
+                  className="dropdown-row"
+                >
+                  <Link
+                    className="link"
+                    to={"/Details/" + item.id + "/" + item.category}
+                  >
+                    {item.title}
+                  </Link>
+                </div>
+              ))}
+          </div>
+        </div>
+
         {/* cart */}
         <div className="cart-container">
           <BsCart2 className="cart" />
-          {cartLength>0?<div className="cart-items">{cartLength}</div>: null}
+          {cartLength > 0 ? (
+            <div className="cart-items">{cartLength}</div>
+          ) : null}
         </div>
         <div className="notification">
           <BsBell />

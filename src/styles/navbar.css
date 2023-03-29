@@ -26,10 +26,11 @@ h1 {
   padding: 0;
   margin: 0;
 }
-form {
+.form {
   width: 60%;
   display: flex;
   margin: 0 auto;
+  position: relative;
 }
 
 input {
@@ -38,6 +39,10 @@ input {
   padding: 10px;
   font-size: var(--medium);
   text-indent: 10px;
+  color: #000;
+}
+input:focus{
+  outline: none;
 }
 button {
   background-color: dodgerblue;
@@ -51,6 +56,34 @@ button {
 }
 button:hover {
   background-color: rgb(129, 192, 255);
+}
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  height: auto;
+  width: 100%;
+  margin-top: 46px;
+  border: 0.5px solid grey;
+  border-radius: 0 0 10px 10px;
+}
+.dropdown-row {
+  min-height: 30px;
+  text-align: start;
+  margin: 2px 0px;
+  text-indent: 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.link{
+  text-decoration: none;
+  color: black;
+}
+.dropdown-row:hover {
+  background-color: rgb(227, 227, 227);
 }
 .cart-container {
   position: relative;
@@ -132,7 +165,7 @@ h1 span {
     padding: 0;
     margin: 0;
   }
-  form {
+  .form {
     width: 100%;
     display: flex;
     margin: 4% auto;
@@ -207,5 +240,28 @@ h1 span {
   }
   .login {
     display: none;
+  }
+  .dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    height: auto;
+    width: 100%;
+    margin-top: 34px;
+    border: 0.5px solid grey;
+    border-radius: 0 0 10px 10px;
+  }
+  .dropdown-row {
+    height: 30px;
+    text-align: start;
+    margin: 2px 0px;
+    text-indent: 5px;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: small;
+
   }
 }

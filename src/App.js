@@ -23,7 +23,6 @@ function App() {
     getData(endpoint)
   }, [endpoint]);
 
-  console.log(cartItem)
   return (
     <BrowserRouter>
       <Navbar handleEvent={changeEndpoint} cartItem={cartItem} />
