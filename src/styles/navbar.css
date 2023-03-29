@@ -66,6 +66,14 @@ h1 {
   margin: 0 auto;
   position: relative;
 }
+.clear{
+  position: absolute;
+  right: 66px;
+  top: 8px;
+  font-size: 15px;
+  color: rgb(159, 159, 159);
+  cursor: pointer;
+}
 
 input {
   width: 100%;
@@ -164,16 +172,54 @@ h1 span {
 @media only screen and (max-width: 600px) {
   header {
     width: 100%;
-    text-align: start;
+    position: relative;
+    margin: 0;
+    padding: 0;
   }
   nav {
-    margin: 4% auto;
-    width: 90%;
+    margin: 1% auto;
+    width:100%;
     padding: 0;
     background-color: rgb(255, 255, 255);
     display: flex;
     align-items: initial;
     flex-direction: column;
+  }
+  .top-section {
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: #ffffff;
+    color: rgb(66, 66, 66);
+    padding-top: 0px;
+    background-color: transparent;
+    position: absolute;
+
+  }
+  .icons-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+  }
+  .cart-container {
+    position: relative;
+  }
+  .cart-items {
+    position: absolute;
+    right: -3px;
+    top: 0;
+    font-size: small;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: rgb(3, 120, 22);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   h1 {
@@ -181,15 +227,24 @@ h1 span {
     margin: 0;
   }
   .form {
-    width: 100%;
+    width: 95%;
     display: flex;
     margin: 4% auto;
+    position: relative;
+  }
+  .clear{
+    position: absolute;
+    right: 66px;
+    top: 6px;
+    font-size: 14px;
+    color: rgb(159, 159, 159);
   }
 
   input {
     width: 100%;
     height: 34px;
     padding: 5px;
+    padding-right: 50px;
     font-size: var(--medium);
     text-indent: 7px;
     font-size: 15px;
@@ -197,7 +252,7 @@ h1 span {
   button {
     background-color: dodgerblue;
     color: #fff;
-    padding: 5px;
+    padding: 5px 20px;
     font-size: var(--small);
     cursor: pointer;
     border: none;
@@ -222,11 +277,12 @@ h1 span {
   }
 
   .logo > span {
-    font-size: 33px;
+    font-size: 28px;
   }
-  .login {
-    display: none;
+  .logo{
+    padding-left: 5px;
   }
+
   .dropdown {
     position: absolute;
     display: flex;
@@ -241,12 +297,14 @@ h1 span {
   .dropdown-row {
     height: 30px;
     text-align: start;
-    margin: 2px 0px;
+    margin: 10px 0px;
     text-indent: 10px;
     cursor: pointer;
     border: none;
     font-weight: 500;
     border-radius: 5px;
-    font-size: small;
+    font-size: 13px;
+    overflow: scroll;
+    white-space: nowrap;
   }
 }

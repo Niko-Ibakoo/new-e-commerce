@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { BsCart2 } from "react-icons/bs";
 import { BsBell } from "react-icons/bs";
 import { VscBell } from "react-icons/vsc";
+import { BiUser } from "react-icons/bi";
 import axios, { all } from "axios";
 
 const Navbar = ({ handleEvent, cartItem }) => {
@@ -33,12 +34,10 @@ const Navbar = ({ handleEvent, cartItem }) => {
   return (
     <header>
       <div className="top-section">
-        <div className="login">
-          <span>Sign up</span>
-          <span> / </span>
-          <span>Log in</span>
-        </div>
         <div className="icons-container">
+          <div className="login">
+            <BiUser />
+          </div>
           <div className="cart-container">
             <BsCart2 className="cart" />
             {cartLength > 0 ? (
@@ -71,9 +70,15 @@ const Navbar = ({ handleEvent, cartItem }) => {
             onChange={(e) => setInputValue(e.target.value)}
             type="text"
             value={inputValue}
+            placeholder="Search for anything"
           />
+          {inputValue && (
+            <div onClick={() => setInputValue("")} className="clear">
+              Clear
+            </div>
+          )}
           <button>
-            <BiSearch className="fa" /> search
+            <BiSearch className="fa" />
           </button>
           <div style={{ visibility: toggVisibility }} className="dropdown">
             {data

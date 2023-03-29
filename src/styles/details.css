@@ -9,6 +9,7 @@ main {
 .container {
   display: flex;
   width: 70%;
+  max-width: 1400px;
   margin-top: 40px;
   justify-content: center;
   gap: 20px;
@@ -52,9 +53,10 @@ main {
 /* YOU MAY ALSO LIKE SECTION*/
 .bottom-container {
   margin: 0 auto;
-  width: 70%;
+  max-width: 70%;
   margin-top: 20px;
   max-width: 1400px;
+  padding: 0px 1px;
 }
 .grid {
   background-color: rgb(242, 242, 242);
