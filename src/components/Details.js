@@ -27,7 +27,7 @@ const Details = ({props}) => {
         err ? console.log("the error is: " + err) : setCategory(res.data);
       }
     );
-  }, [params]);
+  }, [params.type, params.id]);
 
   return (
     <>
