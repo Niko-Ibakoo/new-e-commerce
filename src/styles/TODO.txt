@@ -1,5 +1,8 @@
 # create database
 # hook sign up and log in functionalities (authentication)
-# create checkout page (read STRIPE docs)
-# style for responsiveness (home , nav DONE) - products details
+# create checkout page 
+# allow user to make purchase STRIPE
 # cart functionalities ALMOST DONE
+# add popup for adding to cart
+# fix zooming on input focus ? to test
+# fix search btn

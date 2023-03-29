@@ -6,6 +6,10 @@ import { BsCart2 } from "react-icons/bs";
 import { BsBell } from "react-icons/bs";
 import { VscBell } from "react-icons/vsc";
 import { BiUser } from "react-icons/bi";
+import { FaTshirt } from "react-icons/fa";
+import { GiHighHeel } from "react-icons/gi";
+import { MdComputer } from "react-icons/md";
+import { GiBigDiamondRing } from "react-icons/gi";
 import axios, { all } from "axios";
 
 const Navbar = ({ handleEvent, cartItem }) => {
@@ -85,7 +89,11 @@ const Navbar = ({ handleEvent, cartItem }) => {
               .filter((item) => {
                 const searchTerm = inputValue.toLocaleLowerCase();
                 const product = item.title.toLocaleLowerCase();
-                return searchTerm && product.includes(searchTerm); // if searchTermis true return something else return nothing
+                // if searchTermi exists and it includes the value return something else return nothing
+                if (searchTerm && product.includes(searchTerm)) {
+                  return searchTerm;
+                }
+                // return searchTerm && product.includes(searchTerm); shorter varsion
               })
               .map((item, index) => (
                 <Link
@@ -99,6 +107,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
               ))}
           </div>
         </div>
+        {/* { <div className="no-result">no result found for "{inputValue}"</div>} */}
       </nav>
 
       {/* category list section */}
@@ -109,7 +118,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
           }
         >
           <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
-            men
+            {window.innerWidth>700? 'man' : <FaTshirt/>}
           </Link>
         </li>
         <li
@@ -118,7 +127,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
           }
         >
           <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
-            women
+          {window.innerWidth>700? 'women' : <GiHighHeel />}
           </Link>
         </li>
         <li
@@ -129,7 +138,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
           }
         >
           <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
-            electronics
+          {window.innerWidth>700? 'women' : <MdComputer style={{color:'#fff'}}/>}
           </Link>
         </li>
         <li
@@ -140,7 +149,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
           }
         >
           <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
-            jewelery
+          {window.innerWidth>700? 'women' : <GiBigDiamondRing style={{color:'#fff'}}/>} 
           </Link>
         </li>
         <li onClick={() => handleEvent("https://fakestoreapi.com/products")}>

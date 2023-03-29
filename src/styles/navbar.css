@@ -20,7 +20,8 @@ header {
   align-items: center;
   background-color: #ffffff;
   color: rgb(66, 66, 66);
-  padding: 5px 0px;
+  padding-top:5px ;
+  margin-bottom: -8px;
 }
 .icons-container {
   display: flex;
@@ -49,11 +50,15 @@ nav {
   margin: 0 auto;
   width: 95%;
   max-width: 1400px;
-  padding: 1% 0;
+  padding: 0 0;
   background-color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+.no-result{
+  position: absolute;
+  top: 0;
 }
 
 h1 {
@@ -193,7 +198,7 @@ h1 span {
     align-items: center;
     background-color: #ffffff;
     color: rgb(66, 66, 66);
-    padding-top: 0px;
+    padding-top: 7px;
     background-color: transparent;
     position: absolute;
 
@@ -269,8 +274,13 @@ h1 span {
     width: initial;
     display: flex;
     justify-content: center;
-    overflow-x: scroll;
-    white-space: nowrap;
+    align-items: center;
+  }
+  li{
+    font-size:larger;
+  }
+  li:hover{
+    background-color: rgb(9, 198, 72);
   }
   ul::-webkit-scrollbar {
     width: 0;
