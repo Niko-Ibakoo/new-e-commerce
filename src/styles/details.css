@@ -100,8 +100,9 @@ img {
     flex-direction: column;
   }
   .img-col {
-    width: 100%;
-    min-width: initial;
+    width: 350px;
+    height: 350px;
+    min-width: none;
   }
   .img-col img {
     width: 100%;
