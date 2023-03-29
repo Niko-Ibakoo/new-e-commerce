@@ -4,6 +4,7 @@ import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { BsCart2 } from "react-icons/bs";
 import { BsBell } from "react-icons/bs";
+import { VscBell } from "react-icons/vsc";
 import axios, { all } from "axios";
 
 const Navbar = ({ handleEvent, cartItem }) => {
@@ -31,6 +32,25 @@ const Navbar = ({ handleEvent, cartItem }) => {
 
   return (
     <header>
+      <div className="top-section">
+        <div className="login">
+          <span>Sign up</span>
+          <span> / </span>
+          <span>Log in</span>
+        </div>
+        <div className="icons-container">
+          <div className="cart-container">
+            <BsCart2 className="cart" />
+            {cartLength > 0 ? (
+              <div className="cart-items">{cartLength}</div>
+            ) : null}
+          </div>
+          <div className="notification">
+            <VscBell />
+          </div>
+        </div>
+      </div>
+
       <nav>
         <Link
           onClick={() => setInputValue("")}
@@ -63,37 +83,16 @@ const Navbar = ({ handleEvent, cartItem }) => {
                 return searchTerm && product.includes(searchTerm); // if searchTermis true return something else return nothing
               })
               .map((item, index) => (
-                <div
+                <Link
+                  to={"/Details/" + item.id + "/" + item.category}
                   onClick={() => onSearch(item.title)}
                   key={index}
                   className="dropdown-row"
                 >
-                  <Link
-                    className="link"
-                    to={"/Details/" + item.id + "/" + item.category}
-                  >
-                    {item.title}
-                  </Link>
-                </div>
+                  {item.title}
+                </Link>
               ))}
           </div>
-        </div>
-
-        {/* cart */}
-        <div className="cart-container">
-          <BsCart2 className="cart" />
-          {cartLength > 0 ? (
-            <div className="cart-items">{cartLength}</div>
-          ) : null}
-        </div>
-        <div className="notification">
-          <BsBell />
-        </div>
-        {/* login / sign up */}
-        <div style={{ marginLeft: "auto" }} className="login">
-          <span>Sign up</span>
-          <span> / </span>
-          <span>Log in</span>
         </div>
       </nav>
 
