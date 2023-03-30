@@ -6,15 +6,22 @@ import Loading from "./Loading";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../styles/details.css";
+import PopUp from "./PopUp";
 
 const Details = ({props}) => {
   const params = useParams();
   const [product, setProduct] = useState([]);
   const [category, setCategory] = useState([]); //for the you might also like
-
-
+  const [addedTocart, setAddedTocart] = useState(false)
+  
   //add to cart
-
+  const showPopUp = (item)=>{
+    props.cartEvent(item)
+    setAddedTocart(true)
+    setTimeout(() => {
+        setAddedTocart(false)
+    }, 2500);
+  }
 
   useEffect(() => {
     Axios.get(`https://fakestoreapi.com/products/${params.id}`).then(
@@ -31,6 +38,7 @@ const Details = ({props}) => {
 
   return (
     <>
+    <PopUp visibility={addedTocart} image={product.image} title ={product.title}/>
       {product.title? <main>
         <div className="container">
           <div className="img-col">
@@ -49,7 +57,7 @@ const Details = ({props}) => {
             <h3 style={{color:'red'}}> ${product.price}</h3>
             <div className="product-btn">
               <button>continue shopping</button>
-              <button onClick={()=>props.cartEvent(product)}>add to cart</button>
+              <button onClick={()=>showPopUp(product)}>add to cart</button>
             </div>
           </div>
         </div>

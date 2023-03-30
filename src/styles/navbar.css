@@ -47,7 +47,7 @@ header {
   align-items: center;
 }
 nav {
-  margin: 0 auto;
+  margin: 1% auto;
   width: 95%;
   max-width: 1400px;
   padding: 0 0;
@@ -162,12 +162,12 @@ li:hover {
   background-color: #3d98ff;
 }
 h1 span {
-  font-family: "Courier New", Courier, monospace;
-  font-size: var(--large);
+  font-family: monospace;
+  font-size: 35px;
   padding: 0;
   margin: 0;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+
 }
 .logo {
   padding-right: 10px;
@@ -182,7 +182,7 @@ h1 span {
     padding: 0;
   }
   nav {
-    margin: 1% auto;
+    margin: 0 auto;
     width:100%;
     padding: 0;
     background-color: rgb(255, 255, 255);
@@ -277,7 +277,7 @@ h1 span {
     align-items: center;
   }
   li{
-    font-size:larger;
+    font-size:medium;
   }
   li:hover{
     background-color: rgb(9, 198, 72);
@@ -290,7 +290,7 @@ h1 span {
     font-size: 28px;
   }
   .logo{
-    padding-left: 5px;
+    padding-left: 10px;
   }
 
   .dropdown {

@@ -10,6 +10,7 @@ import { FaTshirt } from "react-icons/fa";
 import { GiHighHeel } from "react-icons/gi";
 import { MdComputer } from "react-icons/md";
 import { GiBigDiamondRing } from "react-icons/gi";
+import {GiLargeDress} from 'react-icons/gi'
 import axios, { all } from "axios";
 
 const Navbar = ({ handleEvent, cartItem }) => {
@@ -118,7 +119,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
           }
         >
           <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
-            {window.innerWidth>700? 'man' : <FaTshirt/>}
+            {window.innerWidth>700? 'men' : <FaTshirt/>}
           </Link>
         </li>
         <li
@@ -127,7 +128,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
           }
         >
           <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
-          {window.innerWidth>700? 'women' : <GiHighHeel />}
+          {window.innerWidth>700? 'women' : <GiLargeDress />}
           </Link>
         </li>
         <li
@@ -138,7 +139,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
           }
         >
           <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
-          {window.innerWidth>700? 'women' : <MdComputer style={{color:'#fff'}}/>}
+          {window.innerWidth>700? 'electronics' : <MdComputer style={{color:'#fff'}}/>}
           </Link>
         </li>
         <li
@@ -149,7 +150,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
           }
         >
           <Link style={{ color: "#fff", textDecoration: "none" }} to={"/"}>
-          {window.innerWidth>700? 'women' : <GiBigDiamondRing style={{color:'#fff'}}/>} 
+          {window.innerWidth>700? 'jewelery' : <GiBigDiamondRing style={{color:'#fff'}}/>} 
           </Link>
         </li>
         <li onClick={() => handleEvent("https://fakestoreapi.com/products")}>

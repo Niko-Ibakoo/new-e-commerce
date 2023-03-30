@@ -4,6 +4,7 @@ import Pages from "./Routing/Pages";
 import Navbar from "./components/Navbar";
 import axios from "axios";
 import ScroolToTop from "./components/ScrollToTop";
+
 function App() {
   const [data, setData] = useState([]);
   //cart
