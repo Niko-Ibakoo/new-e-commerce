@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import "../styles/popUp.css";
 const PopUp = ({ title, image ,visibility}) => {
-  const toggle =  visibility ? '8%' : '-10%'
+  const toggle =  visibility ? '7%' : '-15%'
   return (
     <>
       <div style={{top:toggle}} className="p-container">
