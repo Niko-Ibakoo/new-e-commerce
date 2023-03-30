@@ -3,5 +3,6 @@
 # create checkout page 
 # allow user to make purchase STRIPE
 # cart functionalities ALMOST DONE
-# fix zooming on input focus ? to test
+# fix zooming on input focus DONE
 # fix search btn
+
