@@ -20,7 +20,7 @@ const Details = ({props}) => {
     setAddedTocart(true)
     setTimeout(() => {
         setAddedTocart(false)
-    }, 2500);
+    }, 1500);
   }
 
   useEffect(() => {

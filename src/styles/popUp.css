@@ -11,7 +11,7 @@
     justify-content: center;
     gap: 0px;
     box-shadow: 1px 1px 5px 0px green;
-    transition: .5s;
+    transition: .2s;
 }
 .p-img-container{
     width: 100px;
