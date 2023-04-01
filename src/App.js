@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Test from "./components/Test";
 import axios from "axios";
 import ScroolToTop from "./components/ScrollToTop";
-
+import Footer from "./components/Footer";
 function App() {
   const [data, setData] = useState([]);
   //cart
@@ -29,12 +29,14 @@ function App() {
     <BrowserRouter>
       <ScroolToTop />
       <Navbar handleEvent={changeEndpoint} cartItem={cartItem} />
-      <Test props={data}/>
+      <Test props={data} />
       <Pages
         cartEvent={(item) => setCartItem((current) => [...current, item])}
         cartItems={cartItem}
         data={data}
       />
+      <Footer/>
+
     </BrowserRouter>
   );
 }

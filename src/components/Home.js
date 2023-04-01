@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/home.css";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
+
 const Home = ({ props }) => {
   const data = props;
   return (
@@ -34,7 +35,8 @@ const Home = ({ props }) => {
               ))}
             </div>
             <div className="img-filler">
-              <img style={{borderRadius:0}}
+              <img
+              
                 src="https://i.ebayimg.com/thumbs/images/g/kt4AAOSwiEFf28li/s-l1200.webp"
                 alt=""
               />

@@ -58,7 +58,7 @@ const Test = ({ props }) => {
                 gap: "10px",
               }}
             >
-              {randomTime} <AiFillCheckCircle /> powered by devNiko
+              {randomTime} <AiFillCheckCircle /> powered by .. me :)
             </p>
           </div>
         </Link>
