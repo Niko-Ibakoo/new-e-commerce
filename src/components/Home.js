@@ -34,7 +34,7 @@ const Home = ({ props }) => {
               ))}
             </div>
             <div className="img-filler">
-              <img
+              <img style={{borderRadius:0}}
                 src="https://i.ebayimg.com/thumbs/images/g/kt4AAOSwiEFf28li/s-l1200.webp"
                 alt=""
               />
