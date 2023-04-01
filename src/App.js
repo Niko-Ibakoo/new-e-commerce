@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Pages from "./Routing/Pages";
 import Navbar from "./components/Navbar";
+import Test from "./components/Test";
 import axios from "axios";
 import ScroolToTop from "./components/ScrollToTop";
 
@@ -28,6 +29,7 @@ function App() {
     <BrowserRouter>
       <ScroolToTop />
       <Navbar handleEvent={changeEndpoint} cartItem={cartItem} />
+      <Test props={data}/>
       <Pages
         cartEvent={(item) => setCartItem((current) => [...current, item])}
         cartItems={cartItem}
