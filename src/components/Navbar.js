@@ -94,7 +94,7 @@ const Navbar = ({ handleEvent, cartItem }) => {
                 if (searchTerm && product.includes(searchTerm)) {
                   return searchTerm;
                 }
-                // return searchTerm && product.includes(searchTerm); shorter varsion
+                // return searchTerm && product.includes(searchTerm); shorter version
               })
               .map((item, index) => (
                 <Link

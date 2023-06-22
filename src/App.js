@@ -35,8 +35,7 @@ function App() {
         cartItems={cartItem}
         data={data}
       />
-      <Footer/>
-
+      <Footer />
     </BrowserRouter>
   );
 }

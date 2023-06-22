@@ -8,20 +8,20 @@ import { Link } from "react-router-dom";
 import "../styles/details.css";
 import PopUp from "./PopUp";
 
-const Details = ({props}) => {
+const Details = ({ props }) => {
   const params = useParams();
   const [product, setProduct] = useState([]);
   const [category, setCategory] = useState([]); //for the you might also like
-  const [addedTocart, setAddedTocart] = useState(false)
-  
+  const [addedTocart, setAddedTocart] = useState(false);
+
   //add to cart
-  const showPopUp = (item)=>{
-    props.cartEvent(item)
-    setAddedTocart(true)
+  const showPopUp = (item) => {
+    props.cartEvent(item);
+    setAddedTocart(true);
     setTimeout(() => {
-        setAddedTocart(false)
+      setAddedTocart(false);
     }, 1500);
-  }
+  };
 
   useEffect(() => {
     Axios.get(`https://fakestoreapi.com/products/${params.id}`).then(
@@ -38,30 +38,38 @@ const Details = ({props}) => {
 
   return (
     <>
-    <PopUp visibility={addedTocart} image={product.image} title ={product.title}/>
-      {product.title? <main>
-        <div className="container">
-          <div className="img-col">
-            <img src={product.image} alt="" />
-          </div>
-          <div className="txt-col">
-            <h1 style={{ marginTop: "0", color: "#000" }}>{product.title}</h1>
-            <span>
-              <FaStar className="stars" />
-              <FaStar className="stars" />
-              <FaStar className="stars" />
-              <FaStar style={{marginRight:'3px'}} className="stars" />
-              {`(${product.rating.count})`}
-            </span>
-            <p>{product.description}</p>
-            <h3 style={{color:'red'}}> ${product.price}</h3>
-            <div className="product-btn">
-              <button>continue shopping</button>
-              <button onClick={()=>showPopUp(product)}>add to cart</button>
+      <PopUp
+        visibility={addedTocart}
+        image={product.image}
+        title={product.title}
+      />
+      {product.title ? (
+        <main>
+          <div className="container">
+            <div className="img-col">
+              <img src={product.image} alt="" />
+            </div>
+            <div className="txt-col">
+              <h1 style={{ marginTop: "0", color: "#000" }}>{product.title}</h1>
+              <span>
+                <FaStar className="stars" />
+                <FaStar className="stars" />
+                <FaStar className="stars" />
+                <FaStar style={{ marginRight: "3px" }} className="stars" />
+                {`(${product.rating.count})`}
+              </span>
+              <p>{product.description}</p>
+              <h3 style={{ color: "red" }}> ${product.price}</h3>
+              <div className="product-btn">
+                <button id="add-to-cart-btn" onClick={() => showPopUp(product)}>add to cart</button>
+                <button>continue shopping</button>
+              </div>
             </div>
           </div>
-        </div>
-      </main> : <Loading/>}
+        </main>
+      ) : (
+        <Loading />
+      )}
       {/* YOU MIGHT ALSO LIKE SECTION */}
       {category[0] && (
         <div className="bottom-container">
@@ -70,11 +78,15 @@ const Details = ({props}) => {
             {category.map((item, index) => (
               <div key={index} className="card">
                 <div className="img-container">
-                  <Link to={'/Details/'+item.id+'/'+item.category}><img src={item.image} alt="" /></Link>
+                  <Link to={"/Details/" + item.id + "/" + item.category}>
+                    <img src={item.image} alt="" />
+                  </Link>
                 </div>
                 <p>{item.title}</p>
-                <p style={{fontWeight:'600'}}>$ {item.price - 3}</p>
-                <p style={{textDecoration:'line-through'}}>$ {item.price} </p> 
+                <p style={{ fontWeight: "600" }}>$ {item.price - 3}</p>
+                <p style={{ textDecoration: "line-through" }}>
+                  $ {item.price}{" "}
+                </p>
               </div>
             ))}
           </div>
